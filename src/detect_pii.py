@@ -15,14 +15,14 @@ import nbformat
 import requests
 
 
-def build_pattern(excluded_words:list[str]|None):
+def build_pattern(excluded_words: list[str] | None):
     excluded_pattern = "|".join(re.escape(word) for word in excluded_words)
     return rf'(["\'])(?!(?:{excluded_pattern})\b)([A-Z]{{2,}}(?:\s+[A-Z]{{2,}})*)\1'
 
 
 def get_text_from_url(url):
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=5)
         response.raise_for_status()
         return response.text
     except Exception as e:
@@ -40,12 +40,15 @@ def get_text_from_file(file_path):
 
 
 def detect_pii_in_repo(
-    repo_path: str | Path, excluded_words: list[str], file_ext:None|str=None, verbose=bool | None
+    repo_path: str | Path,
+    excluded_words: list[str],
+    file_ext: None | str = None,
+    verbose=bool | None,
 ):
     repo_path = Path(repo_path).expanduser()
     file_ext = file_ext or "ipynb"
     if file_ext == "ipynb":
-        for file in repo_path.rglob(f"*.ipynb"):
+        for file in repo_path.rglob("*.ipynb"):
             if verbose:
                 print(f"Processing: {file}")
             with open(file, "r", encoding="utf-8") as f:
@@ -62,6 +65,8 @@ def detect_pii_in_repo(
                 print(f"Processing: {file}")
             text = get_text_from_file(file)
             detect_pii_by_regex(text, excluded_words, filename=file)
+
+
 def detect_pii_by_regex(
     text: str,
     excluded_words: list[str],
@@ -99,7 +104,8 @@ def main():
     parser.add_argument("--ext", default="ipynb", help="file extension")
     parser.add_argument("--verbose", default=False, help="verbose output")
     # parser.add_argument("--regex", default=None, help="override default regex")
-    # parser.add_argument("--add-regex", dest="add_regex", default=None, help="add a regex to the default regex")
+    # parser.add_argument("--add-regex", dest="add_regex",
+    # default=None, help="add a regex to the default regex")
 
     args = parser.parse_args()
 
