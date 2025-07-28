@@ -1,12 +1,17 @@
+|pypi| |clinicedc|
+
 EDC Detect PII
 --------------
 
 check before you push! 
 
-Scan your data migrations, notebooks, and other files to look for possible PII exposure.
+Scan data migrations, notebooks, and other files to look for possible PII exposure.
 
 Two areas that are at risk of exposing PII are data migrations and jupyter notebooks.
 
+The default regex looks for any word in CAPS greater than two letters and may have spaces between words.
+
+`Clinic EDC <https://github.com/clinicedc>`_ applications handle names, if the project allows, in ALL CAPS.
 
 Usage
 =====
@@ -30,8 +35,6 @@ or just run the tool without installing
     uv run edc_detect_pii.py <OPTIONS>
 
 So far this just looks for names.
-
-The default regex looks for any word in CAPS greater than two letters and may have spaces between words.
 
 To run on migration files, clone the repo and pass a local path. For example:
 
@@ -57,3 +60,11 @@ todo
 ====
 * allow custom regex and additional regex as arguments
 * consider pre-commit hook that uses a config file of custom words to exclude
+
+.. |pypi| image:: https://img.shields.io/pypi/v/edc-detect-pii.svg
+    :target: https://pypi.python.org/pypi/edc-detect-pii
+
+.. |clinicedc| image:: https://img.shields.io/badge/Clinic_EDC-green
+   :alt:Made with clinicedc
+   :target: https://github.com/clinicedc
+
