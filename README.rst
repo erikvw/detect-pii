@@ -7,6 +7,8 @@ check before you push!
 
 Scan data migrations, notebooks, and other files to look for possible PII exposure.
 
+This is a very simple tool that uses regular expressions. 
+
 Two areas that are at risk of exposing PII are data migrations and jupyter notebooks.
 
 The default regex looks for any word in CAPS greater than two letters and may have spaces between words.
