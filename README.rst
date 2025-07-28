@@ -1,11 +1,21 @@
 EDC Detect PII
 --------------
 
+check before you push!
+
+.. code-block:: bash
+
+    pip install edc-detect-pii
+
+or if you are using uv 
+
+install
+
 .. code-block:: bash
 
     uv pip install edc-detect-pii
 
-or just run the tool
+just run the tool
 
 .. code-block:: bash
 
