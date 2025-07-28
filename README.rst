@@ -1,7 +1,15 @@
 EDC Detect PII
 --------------
 
-check before you push!
+check before you push! 
+
+Scan your data migrations, notebooks, and other files to look for possible PII exposure.
+
+Two areas that are at risk of exposing PII are data migrations and jupyter notebooks.
+
+
+Usage
+=====
 
 .. code-block:: bash
 
@@ -9,13 +17,13 @@ check before you push!
 
 or if you are using uv 
 
-install
+install the module
 
 .. code-block:: bash
 
     uv pip install edc-detect-pii
 
-just run the tool
+or just run the tool without installing
 
 .. code-block:: bash
 
@@ -24,8 +32,6 @@ just run the tool
 So far this just looks for names.
 
 The default regex looks for any word in CAPS greater than two letters and may have spaces between words.
-
-Two areas that are at risk of exposing PII are data migrations and jupyter notebooks.
 
 To run on migration files, clone the repo and pass a local path. For example:
 
