@@ -22,7 +22,7 @@ Usage
 
     pip install edc-detect-pii
 
-or if you are using uv 
+or if you are using `uv <https://docs.astral.sh/uv>`_ 
 
 install the module
 
