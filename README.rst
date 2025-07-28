@@ -1,5 +1,5 @@
-Detect PII
-----------
+EDC Detect PII
+--------------
 
 So far this just looks for names.
 
