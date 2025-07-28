@@ -1,0 +1,27 @@
+[project]
+name = "scripts"
+version = "0.1.0"
+description = "detect PII"
+readme = "README.rst"
+authors = [
+    { name = "Erik van Widenfelt", email = "ew2789@gmail.com" },
+]
+requires-python = ">=3.13"
+dependencies = ["nbformat", "requests"]
+
+[tool.black]
+line-length = 95
+target-version = ["py313"]
+extend-exclude = '''^(.*\/)*\b(migrations)\b($|\/.*$)'''
+
+[tool.isort]
+profile = "black"
+py_version = "313"
+skip = [".tox", ".eggs", "migrations", "_version.py"]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "ruff>=0.12.5",
+]
