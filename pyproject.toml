@@ -1,6 +1,6 @@
 [project]
 name = "edc-detect-pii"
-version = "0.2.0"
+version = "0.2.1"
 description = "detect PII in EDC projects"
 readme = "README.rst"
 authors = [

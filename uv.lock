@@ -84,8 +84,8 @@ wheels = [
 ]
 
 [[package]]
-name = "detect-pii"
-version = "0.2.0"
+name = "edc-detect-pii"
+version = "0.2.1"
 source = { virtual = "." }
 dependencies = [
     { name = "nbformat" },
